@@ -1,0 +1,48 @@
+<div class="container">
+    <h2>User Settings</h2>
+    <form  #form="ngForm">
+      <div class="mb-3">
+        <label for="name">Name</label>
+        <input id="name" name="name" class="form-control" placeholder="Name" ngModel/>
+      </div>
+      <div class="form-check mb-3">
+        <input type="checkbox" class="form-check-input" id="emailOffers" name="emailOffers">
+        <label for="emailOffers" class="form-check-label">Email Special Offers</label>
+      </div>
+      <div class="mb-3">
+        <p>User Interface Style</p>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="interfaceStyle" id="lightInterface">
+        <label class="form-check-label" for="lightInterface">
+          Light
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="interfaceStyle" id="mediumInterface" checked>
+        <label class="form-check-label" for="mediumInterface">
+          Medium
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="interfaceStyle" id="darkInterface" checked>
+        <label class="form-check-label" for="darkInterface">
+          Dark
+        </label>
+      </div>
+      <div class="mb-3">
+        <label for="subscriptionType">Subscription Type</label>
+        <select class="form-control" id="subsciptionType">
+          <option>Monthly</option>
+          <option>Annual</option>
+          <option>Lifetime</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="notes">Notes</label>
+        <textarea name="notes" id="notes" cols="30" rows="3" class="form-control"></textarea>
+      </div>
+      <button class="btn btn-primary">Send</button>
+    </form>
+  </div>
+  {{form.value | json}}
