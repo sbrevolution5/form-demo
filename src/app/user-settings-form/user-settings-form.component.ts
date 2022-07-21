@@ -23,7 +23,10 @@ export class UserSettingsFormComponent implements OnInit {
   }
   onSubmit(form: NgForm){
     console.log('in onSubmit: ', form.valid);
-    this.dataService.postUserSettingsForm(this.userSettings);
+    this.dataService.postUserSettingsForm(this.userSettings).subscribe(
+      result => console.log('success', result),
+      error => console.log('error', error)
+    );
   }
   onBlur(field: NgModel){
     console.log('in onBlur:', field.valid)
