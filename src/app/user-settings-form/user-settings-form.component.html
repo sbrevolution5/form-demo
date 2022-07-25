@@ -10,7 +10,7 @@
         <input type="checkbox" class="form-check-input" id="emailOffers" name="emailOffers" [(ngModel)]="userSettings.emailOffers">
         <label for="emailOffers" class="form-check-label">Email Special Offers</label>
       </div>
-      
+
       <div class="mb-3">
         <p>User Interface Style</p>
       </div>
@@ -35,9 +35,7 @@
       <div class="mb-3">
         <label for="subscriptionType">Subscription Type</label>
         <select class="form-control" id="subsciptionType" name="subscriptionType" [(ngModel)]="userSettings.subscriptionType">
-          <option>Monthly</option>
-          <option>Annual</option>
-          <option>Lifetime</option>
+          <option *ngFor="let type of subscriptionTypes">{{type}}</option>
         </select>
       </div>
       <div class="mb-3">
