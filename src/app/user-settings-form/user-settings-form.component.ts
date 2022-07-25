@@ -17,14 +17,18 @@ export class UserSettingsFormComponent implements OnInit {
     subscriptionType: 'Annual',
     notes: 'notes go here!'
   }
+  startDate: Date;
   userSettings : UserSettings={...this.originalUserSettings};
   subscriptionTypes= new Observable<string[]>();
   postError = false;
   postErrorMessage = '';
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService) {
+    this.startDate = new Date();
+  }
   singleModel = 'On';
   ngOnInit(): void {
     this.subscriptionTypes = this.dataService.getSubscriptionTypes();
+
   }
   onHttpError(errorResponse: any){
     console.log('error: ',errorResponse);

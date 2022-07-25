@@ -6,7 +6,8 @@ import { AppComponent } from './app.component';
 import { UserSettingsFormComponent } from './user-settings-form/user-settings-form.component';
 import { HttpClientModule } from '@angular/common/http';
 import {ButtonsModule} from 'ngx-bootstrap/buttons';
-
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
+import {BsDatepickerModule} from 'ngx-bootstrap/datepicker'
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,7 +17,9 @@ import {ButtonsModule} from 'ngx-bootstrap/buttons';
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    ButtonsModule.forRoot()
+    ButtonsModule.forRoot(),
+    BrowserAnimationsModule,
+    BsDatepickerModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
