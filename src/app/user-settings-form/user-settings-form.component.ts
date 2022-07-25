@@ -2,6 +2,7 @@ import { DataService } from './../data/data.service';
 import { UserSettings } from './../data/user-settings';
 import { Component, OnInit } from '@angular/core';
 import { NgForm, NgModel } from '@angular/forms';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-user-settings-form',
@@ -17,12 +18,13 @@ export class UserSettingsFormComponent implements OnInit {
     notes: 'notes go here!'
   }
   userSettings : UserSettings={...this.originalUserSettings};
-  subscriptionTypes= ['Monthly', 'Annual', 'Lifetime'];
+  subscriptionTypes= Observable<string[]>;
   postError = false;
   postErrorMessage = '';
   constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
+    this.subscriptionTypes = this.dataService.getSubscriptionTypes();
   }
   onHttpError(errorResponse: any){
     console.log('error: ',errorResponse);
