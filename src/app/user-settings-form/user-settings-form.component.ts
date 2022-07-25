@@ -13,7 +13,7 @@ export class UserSettingsFormComponent implements OnInit {
   originalUserSettings : UserSettings = {
     name: 'Seth',
     emailOffers: true,
-    interfaceStyle: 'dark',
+    interfaceStyle: 'Dark',
     subscriptionType: 'Annual',
     notes: 'notes go here!'
   }
@@ -22,7 +22,7 @@ export class UserSettingsFormComponent implements OnInit {
   postError = false;
   postErrorMessage = '';
   constructor(private dataService: DataService) { }
-
+  singleModel = 'On';
   ngOnInit(): void {
     this.subscriptionTypes = this.dataService.getSubscriptionTypes();
   }
@@ -32,7 +32,7 @@ export class UserSettingsFormComponent implements OnInit {
     this.postErrorMessage = errorResponse.message;
   }
   onSubmit(form: NgForm){
-    console.log('in onSubmit: ', form.valid);
+    console.log('in onSubmit: ', this.userSettings.interfaceStyle);
     if(form.valid){
 
       this.dataService.postUserSettingsForm(this.userSettings).subscribe(
